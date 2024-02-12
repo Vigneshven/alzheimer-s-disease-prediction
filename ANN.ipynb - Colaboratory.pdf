@@ -1,0 +1,139 @@
+!pip install pandas
+
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: pandas in /usr/local/lib/python3.10/dist-packages (1.5.3)
+Requirement already satisfied: python-dateutil>=2.8.1 in /usr/local/lib/python3.10/dist-packages (from pandas) (2.8.2)
+Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas) (2022.7.1)
+Requirement already satisfied: numpy>=1.21.0 in /usr/local/lib/python3.10/dist-packages (from pandas) (1.22.4)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.8.1->pandas) (1.16.0)
+
+!pip install numpy
+
+!pip install numpy
+
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: numpy in /usr/local/lib/python3.10/dist-packages (1.22.4)
+
+import numpy as np
+import pandas as pd
+
+from google.colab import files
+uploaded = files.upload()
+   Choose Files No file chosen Upload widget is only available when the cell has been executed in the current browser session. Please rerun this cell to
+enable
+
+dataset =pd.read_csv('50_Startups.csv')
+
+dataset.head()
+
+R&D Spend Administration Marketing Spend State Profit
+0 165349.20 136897.80 471784.10 New York 192261.83
+1 162597.70 151377.59 443898.53 California 191792.06
+2 153441.51 101145.55 407934.54 Florida 191050.39
+3 144372.41 118671.85 383199.62 New York 182901.99
+4 142107.34 91391.77 366168.42 Florida 166187.94
+
+dataset.isnull().any()
+
+R&D Spend False
+Administration False
+Marketing Spend False
+State False
+Profit False
+dtype: bool
+label encoding
+
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+dataset['State'] = le.fit_transform(dataset['State'])
+
+x = dataset.iloc[:,0:4].values
+y = dataset.iloc[:,4:5].values
+
+x.dtype
+
+dtype('float64')
+
+from sklearn.preprocessing import OneHotEncoder
+one = OneHotEncoder()
+
+train ,test &split
+from sklearn.model_selection import train_test_split
+x_train,
+
+---------------------------------------------------------------------------
+NameError Traceback (most recent call last)
+<ipython-input-28-94243ac29b2b> in <cell line: 2>()
+ 1 from sklearn.model_selection import train_test_split
+----> 2 x_train,x
+NameError: name 'x_train' is not defined
+SEARCH STACK OVERFLOW
+
+import tensorflow.keras
+from tensorflow.keas.models import sequentia
+from tensorflow.keras.layers import dense
+---------------------------------------------------------------------------
+ModuleNotFoundError Traceback (most recent call last)
+<ipython-input-30-b167a2a29e14> in <cell line: 2>()
+ 1 import tensorflow.keras
+----> 2 from tensorflow.keas.models import sequentia
+ 3 from tensorflow.keras.layers import dense
+ModuleNotFoundError: No module named 'tensorflow.keas'
+
+---------------------------------------------------------------------------
+NOTE: If your import is failing due to a missing package, you can
+manually install dependencies using either !pip or !apt.
+To view examples of installing some common dependencies, click the
+"Open Examples" button below.
+---------------------------------------------------------------------------
+SEARCH STACK OVERFLOW
+
+
+import pandas as pd
+data = {'name': ['Alice', 'Bob', 'Charlie'], 'age': [25, 30, 35]}
+df = pd.DataFrame(data)
+df = df.drop(1)
+print(df)
+
+Object `snippet` not found.
+ name age
+0 Alice 25
+2 Charlie 35
+
+
+import pandas as pd
+data = {'name': ['Alice', 'Bob', 'Charlie'], 'age': [25, 30, 35]}
+df = pd.DataFrame(data)
+df = df.drop(1)
+print(df)
+
+ name age
+0 Alice 25
+2 Charlie 35
+
+
+import numpy as np
+arr = np.array([1, 2, 3])
+print(arr.ndim)
+1
+
+import numpy as np
+arr = np.array([1, 2, 3])
+print(arr.dtype)
+
+int64
+import numpy as np
+arr = np.zeros(5)
+print(arr)
+
+[0. 0. 0. 0. 0.]
+
+import pandas as pd
+data = {'name': ['Alice', 'Bob', 'Charlie'], 'age': [25, 30, 35]}
+df = pd.DataFrame(data)
+print(df['name'])
+
+0 Alice
+1 Bob
+2 Charlie
+Name: name, dtype: object
